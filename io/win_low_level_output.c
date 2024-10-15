@@ -1,11 +1,11 @@
 #include <Windows.h> 
-                                                                                                                  
+
 int main()
 {
 	//~ Рядок, який необхідно вивести
 	char str[14] = "Hello, World\n";
 
-	//~ Відкриваємо файл
+	//~ Відкриваємо файл, отримуємо вказівник на номер файлу
 	int  * OutFile = CreateFileA("tmp.dat", GENERIC_WRITE, 0, NULL, CREATE_ALWAYS, FILE_ATTRIBUTE_NORMAL, NULL);
 	//~ Записуємо у файл
 	WriteFile(OutFile, str, 14, NULL, NULL); 
