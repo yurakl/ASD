@@ -24,9 +24,12 @@ int main()
 		word_position = strstr(search_position, word);
 		//~ Зміщуємо позицію пошуку за знайдене слово
 		search_position = word_position + strlen(word);
-		//~ Друкуємо позицію слова в рядку 
-		printf("The word  \"%s\" found  at the position %lld\n", word,  word_position !=  NULL ? word_position - string : -1);
+		//~ Друкуємо позицію слова в рядку
+		if (word_position == NULL) {
+			break;
+		}
+		printf("The word  \"%s\" found  at the position %lld\n", word,  word_position - string);
 	}
-	while(word_position);
+	while(word_position !=  NULL);
 	puts("End");
 }
