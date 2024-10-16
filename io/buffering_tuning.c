@@ -10,7 +10,7 @@ int main()
 	//~ Вимкнення буферизації для файлу
 	setvbuf(file_object, NULL, _IONBF, BUFSIZ);
 	//~ Лінійна буферизація для стандартного потоку виводу
-	setvbuf(stdout,	   NULL, _IOLBF, BUFSIZ);
+	setvbuf(stdout,	   NULL, _IOFBF, BUFSIZ);
 
 	//~ Друк першої фрази
 	fprintf(file_object, "First output");
