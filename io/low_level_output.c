@@ -1,4 +1,3 @@
-#include <unistd.h>
 #include <fcntl.h>
 
 int main()
@@ -10,5 +9,5 @@ int main()
 	//~ Записуємо у файл під номером fd 12 байтів з адреси ptr
 	write(fd, str, 14);
 	//~ Записуємо у стандартний потік виведення (fd = 0, консоль) 12 байтів з адреси ptr
-	write(0, str, 14);
+	write(1, str, 14);
 }
