@@ -32,9 +32,15 @@ class Vector
 		}
 
 	//~ Конструктор класу за замовчуванням - без аргументів
-	Vector() {counter++;};
+	Vector() {
+		cout << "Default Creation Constructor is applied" << endl;
+		counter++;
+	};
 	//~ Конструктор з аргументами
-	Vector(float _x, float _y, float _z) : x{_x}, y {_y}, z {_z} {counter++;};
+	Vector(float _x, float _y, float _z) : x{_x}, y {_y}, z {_z} {
+		cout << "Overloaded Creation Constructor is applied" << endl;
+		counter++;
+	};
 
 	//~ Конструктор копіювання - виконується при створені копії об'єкту - присвоєнні значення об'єкту іншому
 	Vector(const Vector& origin);
@@ -55,6 +61,7 @@ class Vector
 
 	//~ Оператор для порівняння векторів
 	friend int 		operator > (const Vector& v_1, const Vector& v_2);
+	friend int 		operator < (const Vector& v_1, const Vector& v_2);
 };
 
 //~ Конструктор копіювання - просто присвоюємо новому об'єкту значення полів об'єкту, до якого прирівнюємо
@@ -108,6 +115,14 @@ std::ostream& operator << (std::ostream& stream, const Vector& v)
 int operator > (const Vector& v_1, const Vector& v_2)
 {
 	if ((v_1.x * v_1.x + v_1.y * v_1.y + v_1.z * v_1.z) > (v_2.x * v_2.x + v_2.y * v_2.y + v_2.z * v_2.z)) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+int operator < (const Vector& v_1, const Vector& v_2)
+{
+	if ((v_1.x * v_1.x + v_1.y * v_1.y + v_1.z * v_1.z) < (v_2.x * v_2.x + v_2.y * v_2.y + v_2.z * v_2.z)) {
 		return 1;
 	} else {
 		return 0;
